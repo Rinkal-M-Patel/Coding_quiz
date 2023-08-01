@@ -24,3 +24,31 @@ startButton.addEventListener("click", () => {
   // ! call the core gameplay function
   startGame();
 });
+
+
+
+function startGame() {
+  // hide the start-screen
+  startScreen.classList.add("hide");
+  // show the questionCard
+  questionCard.classList.remove("hide");
+  playerFeedback.classList.remove("hide");
+
+  displayQuestion();
+}
+
+function displayQuestion(questionIndex) {
+  
+
+  // add question to the questionTitle heading
+  questionTitle.innerText = questions[questionIndex].question;
+
+  choices.innerHTML = "";
+    questions[questionIndex].options.forEach((choice, index) => {
+    const button = document.createElement("button");
+    button.value = index;
+    button.id = `${questions[questionIndex].id}-${index}`;
+    button.textContent = choice;
+    choices.appendChild(button);
+  });
+}
