@@ -25,6 +25,11 @@ startButton.addEventListener("click", () => {
   startGame();
 });
 
+choices.addEventListener("click", (e) => {
+  if (e.target.matches("button")) {
+    checkAnswer(e);
+  }
+});
 
 // Initialise global variables
 let timer = 60;
@@ -87,4 +92,29 @@ function displayQuestion(questionIndex) {
     button.textContent = choice;
     choices.appendChild(button);
   });
+}
+
+function checkAnswer(e) {
+  
+  if (
+    questions[currentIndex].correctAnswer.toString() === e.target.value
+  ) {
+    score += 10;
+    playerFeedback.textContent = "Correct!";
+    correct.play();
+   
+  } else {
+    subtractTime();
+    playerFeedback.textContent = "Incorrect!";
+    incorrect.play();
+  }
+
+  currentIndex++;
+
+ 
+  displayQuestion(currentIndex);
+}
+
+function subtractTime() {
+  timer -= wrongAns;
 }
