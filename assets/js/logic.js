@@ -26,6 +26,14 @@ startButton.addEventListener("click", () => {
 });
 
 
+// Initialise global variables
+let timer = 60;
+time.innerText = timer;
+let intervalId;
+let score = 0;
+let wrongAns = 10;
+let currentIndex = 0;
+
 
 function startGame() {
   // hide the start-screen
@@ -34,11 +42,39 @@ function startGame() {
   questionCard.classList.remove("hide");
   playerFeedback.classList.remove("hide");
 
-  displayQuestion();
+  if (timer <= 0) {
+    // if true the game is over
+    clearInterval(intervalId);
+    time.innerText = "Game Over!";
+    endGame();
+    return;
+  }
+
+  
+  // this interval sets the core game timer
+  intervalId = setInterval(() => {
+    if (timer > 0) {
+      timer -= 1;
+      time.innerText = timer;
+    } else {
+      clearInterval(intervalId);
+      time.innerText = "Time's up!";
+      endGame();
+    }
+  }, 1000);
+
+  // ? THEN I am presented with another question
+  displayQuestion(currentIndex);
 }
 
 function displayQuestion(questionIndex) {
-  
+  if (currentIndex >= questions.length) {
+ 
+    clearInterval(intervalId);
+    time.innerText = "Game Over";
+    endGame();
+    return;
+  }
 
   // add question to the questionTitle heading
   questionTitle.innerText = questions[questionIndex].question;
