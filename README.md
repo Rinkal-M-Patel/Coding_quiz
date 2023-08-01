@@ -80,7 +80,7 @@ During the development of this project, I learned the following:
 
 ## Demo
 
-Insert gif or link to demo
+https://rinkal-m-patel.github.io/Coding_quiz/
 
 
 ## Run Locally
