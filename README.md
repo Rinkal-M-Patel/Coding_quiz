@@ -45,7 +45,8 @@ The application is built using HTML, CSS, and JavaScript and utilizes Web APIs f
 . View the highscores by clicking on the "View Highscores" link.
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![start-page](./assets/demo.png)
+![questions](./assets/demo1.png)
 
 
 
