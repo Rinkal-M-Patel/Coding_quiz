@@ -20,3 +20,7 @@ const correct = new Audio("./assets/sfx/correct.wav");
 const incorrect = new Audio("./assets/sfx/incorrect.wav");
 
 
+startButton.addEventListener("click", () => {
+  // ! call the core gameplay function
+  startGame();
+});
