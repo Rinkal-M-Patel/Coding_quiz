@@ -68,8 +68,20 @@ function startGame() {
     }
   }, 1000);
 
-  // ? THEN I am presented with another question
+  
   displayQuestion(currentIndex);
+}
+
+function endGame() {
+  
+  questionCard.classList.add("hide");
+  playerFeedback.classList.add("hide");
+
+  endScreen.classList.remove("hide");
+
+  
+  finalScore.innerText = score;
+
 }
 
 function displayQuestion(questionIndex) {
