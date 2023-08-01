@@ -31,6 +31,18 @@ choices.addEventListener("click", (e) => {
   }
 });
 
+submitScore.addEventListener("click", () => {
+
+  //check for input
+  if (!inputElement.value) {
+    alert("Please enter your initials before pressing submit!");
+    return;
+  }
+  // add user score and initials to the high scores
+  addHighScore({ name: inputElement.value, score: score });
+  location.href = "./highscores.html";
+});
+
 // Initialise global variables
 let timer = 60;
 time.innerText = timer;
@@ -129,4 +141,14 @@ function checkAnswer(e) {
 
 function subtractTime() {
   timer -= wrongAns;
+}
+
+
+function addHighScore(newScore) {
+  
+  var highScoresJSON = localStorage.getItem("highScores");
+  var highScores = highScoresJSON ? JSON.parse(highScoresJSON) : [];
+
+  var newHighScores = highScores.concat(newScore);
+  localStorage.setItem("highScores", JSON.stringify(newHighScores));
 }
