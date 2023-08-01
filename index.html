@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Coding Quiz</title>
 
+    <!-- Link to the external CSS file for styling -->
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
 
   <body>
+    <!-- Link to view the highscores page -->
     <div class="scores"><a href="highscores.html">View Highscores</a></div>
 
     <div class="timer">Time: <span id="time">0</span></div>
 
     <div class="wrapper">
+      <!-- Start screen with instructions -->
       <div id="start-screen" class="start">
         <h1>Coding Quiz Challenge</h1>
         <p>
@@ -25,11 +28,13 @@
         <button id="start">Start Quiz</button>
       </div>
 
+        <!-- Container for displaying questions -->
       <div id="questions" class="hide">
         <h2 id="question-title"></h2>
         <div id="choices" class="choices"></div>
       </div>
 
+      <!-- End screen shown after completing the quiz -->
       <div id="end-screen" class="hide">
         <h2>All done!</h2>
         <p>Your final score is <span id="final-score"></span>.</p>
@@ -39,9 +44,11 @@
         </p>
       </div>
 
+       <!-- Feedback container for showing correct/incorrect responses -->
       <div id="feedback" class="feedback hide"></div>
     </div>
 
+    <!-- Load the JavaScript files for handling questions and quiz logic -->
     <script src="./assets/js/questions.js" type="module"></script>
     <script src="./assets/js/logic.js" type="module"></script>
   </body>
